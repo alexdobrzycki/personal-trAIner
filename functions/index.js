@@ -18,10 +18,11 @@ module.exports.handler = async (event, context) => {
         return { statusCode: 405, body: 'Method Not Allowed' };
     }
 
-    const { message } = JSON.parse(event.body);
+    const { additional } = JSON.parse(event.body);
+    const { message2 } = JSON.parse(event.body);
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{ "role": "system", "content": "" }, { role: "user", content: message }],
+        messages: [{ "role": "system", "content": "" }, { role: "user", content: additional }],
         max_tokens: 8,
     });
 

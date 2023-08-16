@@ -1,4 +1,5 @@
 body {
+  background-color: #15317E;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:visited, :link {
+  color: #157DEC;
+}
+
+.bottomleft {
+  color: white;
+  font-size: medium;
+  position: absolute;
+  bottom: 0px;
+  left: 1rem;  
+}
+
+.bottomright {
+  font-size: medium;
+  position: absolute;
+  bottom: 0px;
+  right: 1rem;  
 }

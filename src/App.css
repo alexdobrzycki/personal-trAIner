@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  color: white;
+  .AI-title {
+    color: red;
+  }
+}
+
+.secondary-title {
+  text-align: center;
+  color: #BCC6CC;
+}
