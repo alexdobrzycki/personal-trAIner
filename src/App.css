@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  margin-bottom: 2rem;
 }
 
 .App-header {
@@ -28,15 +18,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .title {
   color: white;
   .AI-title {
@@ -47,4 +28,101 @@
 .secondary-title {
   text-align: center;
   color: #BCC6CC;
+}
+
+.input-container {
+  margin: 0 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #BCC6CC;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.selected {
+  color: #008000;
+}
+
+.form-top {
+  margin-top: 4rem;
+}
+
+.main-label {
+  font-size: 2rem;
+  font-weight: bold;
+  color:white;
+}
+
+.main-label {
+  font-size: 2rem;
+  font-weight: bold;
+  color:white;
+}
+
+.additional-requests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rounded-textarea {
+  border-color: #BCC6CC;
+  border-width: medium;
+  border-radius: .5rem; 
+  text-align: center;
+  font-size: 1rem;
+  resize: none;
+  width: 20rem;
+  height: 3.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.normal-button {
+  background-color: #BCC6CC;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  border-radius: .5rem; 
+  padding: .75rem;
+  cursor: pointer;
+}
+
+.green-button {
+  background-color: darkgreen;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  border-radius: .5rem; 
+  padding: .75rem;
+  cursor: pointer;
+}
+
+:visited, :link {
+  color: #157DEC;
+}
+
+.bottomleft {
+  color: white;
+  font-size: medium;
+  position: absolute;
+  bottom: 0px;
+  left: 1rem;  
+}
+
+.bottomright {
+  font-size: medium;
+  position: absolute;
+  bottom: 0px;
+  right: 1rem;  
 }

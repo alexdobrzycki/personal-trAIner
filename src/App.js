@@ -7,23 +7,38 @@ function App() {
   const [additional, setAdditional] = useState('');
   const [response, setResponse] = useState('');
   const [showResponse, setShowResponse] = useState(false);
+  const [areFieldsFilled, setAreFieldsFilled] = useState(false);
 
 
   const handleFocusChange = (e) => {
     setWorkoutFocus(e.target.value);
+    setAreFieldsFilled(selectedOptions.length > 0 && e.target.value !== '');
   };
 
   const handleCheckboxChange = (e) => {
     const value = e.target.value;
     if (selectedOptions.includes(value)) {
       setSelectedOptions(selectedOptions.filter((item) => item !== value));
+      setAreFieldsFilled(selectedOptions.length !== 1);
     } else {
       setSelectedOptions([...selectedOptions, value]);
+      setAreFieldsFilled(workoutFocus !== '');
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!workoutFocus) {
+      alert("Please select a workout focus (Intensity or Volume).");
+      return;
+    }
+
+    if (selectedOptions.length === 0) {
+      alert("Please select at least one muscle group.");
+      return;
+    }
+
     setShowResponse(true);
     fetch(process.env.REACT_APP_FETCH, {
       method: 'POST',
@@ -52,85 +67,97 @@ function App() {
             to generate a personalized workout just for you!
           </h3>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Focus on:</label>
-              <div>
-                <input
-                  type="radio"
-                  value="Intensity"
-                  onChange={handleFocusChange}
-                  checked={workoutFocus === 'Intensity'}
-                />
-                <label>Intensity</label>
-                <input
-                  type="radio"
-                  value="Volume"
-                  onChange={handleFocusChange}
-                  checked={workoutFocus === 'Volume'}
-                />
-                <label>Volume</label>
+            <div className="form-top">
+              <label className="main-label">Focus on:</label>
+              <div className="input-container">
+                <label className={`radio-option ${workoutFocus === 'Intensity' ? 'selected' : ''}`}>
+                  <input
+                    type="radio"
+                    value="Intensity"
+                    onChange={handleFocusChange}
+                    checked={workoutFocus === 'Intensity'}
+                  />
+                  Intensity
+                </label>
+                <label className={`radio-option ${workoutFocus === 'Volume' ? 'selected' : ''}`}>
+                  <input
+                    type="radio"
+                    value="Volume"
+                    onChange={handleFocusChange}
+                    checked={workoutFocus === 'Volume'}
+                  />
+                  Volume
+                </label>
               </div>
             </div>
             <div>
-              <label>Choose muscle groups:</label>
-              <div>
-                <label>
+              <label className="main-label">Choose muscle groups:</label>
+              <div className="input-container">
+                <label className={`checkbox-option ${selectedOptions.includes('Chest') ? 'selected' : ''}`}>
                   <input
                     type="checkbox"
-                    value="chest"
+                    value="Chest"
                     onChange={handleCheckboxChange}
-                    checked={selectedOptions.includes('chest')}
+                    checked={selectedOptions.includes('Chest')}
                   />
                   Chest
                 </label>
-                <label>
+                <label className={`checkbox-option ${selectedOptions.includes('Triceps') ? 'selected' : ''}`}>
                   <input
                     type="checkbox"
-                    value="triceps"
+                    value="Triceps"
                     onChange={handleCheckboxChange}
-                    checked={selectedOptions.includes('triceps')}
+                    checked={selectedOptions.includes('Triceps')}
                   />
                   Triceps
                 </label>
-                <label>
+                <label className={`checkbox-option ${selectedOptions.includes('Back') ? 'selected' : ''}`}>
                   <input
                     type="checkbox"
-                    value="back"
+                    value="Back"
                     onChange={handleCheckboxChange}
-                    checked={selectedOptions.includes('back')}
+                    checked={selectedOptions.includes('Back')}
                   />
                   Back
                 </label>
-                <label>
+                <label className={`checkbox-option ${selectedOptions.includes('Biceps') ? 'selected' : ''}`}>
                   <input
                     type="checkbox"
-                    value="biceps"
+                    value="Biceps"
                     onChange={handleCheckboxChange}
-                    checked={selectedOptions.includes('biceps')}
+                    checked={selectedOptions.includes('Biceps')}
                   />
                   Biceps
                 </label>
-                <label>
+                <label className={`checkbox-option ${selectedOptions.includes('Legs') ? 'selected' : ''}`}>
                   <input
                     type="checkbox"
-                    value="legs"
+                    value="Legs"
                     onChange={handleCheckboxChange}
-                    checked={selectedOptions.includes('legs')}
+                    checked={selectedOptions.includes('Legs')}
                   />
                   Legs
                 </label>
               </div>
             </div>
-            <div>
-              <label>Additional Requests:</label>
-              <textarea value={additional} onChange={(e) => setAdditional(e.target.value)} />
+            <div className="additional-requests">
+              <label className="main-label">Additional Requests:</label>
+              <textarea
+                value={additional}
+                onChange={(e) => setAdditional(e.target.value)}
+                className="rounded-textarea"
+              />
             </div>
-            <button type="submit">Submit</button>
+            <button className={areFieldsFilled ? 'green-button' : 'normal-button'} type="submit">
+              Generate Workout
+            </button>
           </form>
         </div>
       ) : (
         <div>{response}</div>
       )}
+      <p className="bottomleft">Created by: <a href="https://www.alexdob.com/" target="_blank" rel="noopener noreferrer">alexdob</a></p>
+      <p className="bottomright"><a href="https://alexdob.com/#gallery-3" target="_blank" rel="noopener noreferrer">HOW THIS WORKS</a></p>
     </div>
   );
 }
