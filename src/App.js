@@ -156,8 +156,6 @@ function App() {
       ) : (
         <div>{response}</div>
       )}
-      <p className="bottomleft">Created by: <a href="https://www.alexdob.com/" target="_blank" rel="noopener noreferrer">alexdob</a></p>
-      <p className="bottomright"><a href="https://alexdob.com/#gallery-3" target="_blank" rel="noopener noreferrer">HOW THIS WORKS</a></p>
     </div>
   );
 }

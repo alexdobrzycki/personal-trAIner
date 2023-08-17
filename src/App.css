@@ -1,6 +1,10 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .App-header {
@@ -19,9 +23,10 @@
 }
 
 .title {
+  margin: 0;
   color: white;
   .AI-title {
-    color: red;
+    color: #ff0000;
   }
 }
 
@@ -31,11 +36,11 @@
 }
 
 .input-container {
-  margin: 0 0 2rem;
+  margin: .5rem 0 1.5rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #BCC6CC;
 }
@@ -52,18 +57,8 @@
   color: #008000;
 }
 
-.form-top {
-  margin-top: 4rem;
-}
-
 .main-label {
-  font-size: 2rem;
-  font-weight: bold;
-  color:white;
-}
-
-.main-label {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color:white;
 }
@@ -82,14 +77,14 @@
   font-size: 1rem;
   resize: none;
   width: 20rem;
-  height: 3.5rem;
-  margin: 1rem 0 2rem;
+  height: 2.5rem;
+  margin: .5rem 0 1.5rem;
 }
 
 .normal-button {
   background-color: #BCC6CC;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   border-radius: .5rem; 
@@ -100,29 +95,10 @@
 .green-button {
   background-color: darkgreen;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   border-radius: .5rem; 
   padding: .75rem;
   cursor: pointer;
-}
-
-:visited, :link {
-  color: #157DEC;
-}
-
-.bottomleft {
-  color: white;
-  font-size: medium;
-  position: absolute;
-  bottom: 0px;
-  left: 1rem;  
-}
-
-.bottomright {
-  font-size: medium;
-  position: absolute;
-  bottom: 0px;
-  right: 1rem;  
 }
