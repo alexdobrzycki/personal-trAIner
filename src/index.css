@@ -17,17 +17,17 @@ code {
   color: #157DEC;
 }
 
-.bottomleft {
+.topleft {
   color: white;
   font-size: medium;
   position: absolute;
-  bottom: 0px;
+  top: 0px;
   left: 1rem;  
 }
 
-.bottomright {
+.topright {
   font-size: medium;
   position: absolute;
-  bottom: 0px;
+  top: 0px;
   right: 1rem;  
 }

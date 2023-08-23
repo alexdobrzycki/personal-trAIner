@@ -57,14 +57,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">
-        Your very own personal tr<span className="AI-title">AI</span>ner.
-      </h1>
       {!showResponse ? (
         <div>
+          <h1 className="title">
+            Your very own personal tr<span style={{ color: "#ff0000" }}>AI</span>ner.
+          </h1>
           <h3 className="secondary-title">
-            Looking for a quick and effective workout plan? Specify your preferences, and use the power of OpenAI's API
-            to generate a personalized workout just for you!
+            Looking for a quick and effective workout plan? Specify your preferences, and use the power of <a href="https://openai.com/blog/openai-api" target="_blank" rel="noopener noreferrer">OpenAI's API</a> to generate a personalized workout just for you!
           </h3>
           <form onSubmit={handleSubmit}>
             <div className="form-top">
@@ -154,7 +153,7 @@ function App() {
           </form>
         </div>
       ) : (
-        <div>{response}</div>
+        <div className="response" style={{ whiteSpace: "pre-wrap" }}>{response}</div>
       )}
     </div>
   );
